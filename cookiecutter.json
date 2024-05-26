@@ -2,5 +2,4 @@
   "project_name": "FastAPI Starter",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "author": "Benevolent Dictator For Life <bdfl@python.org",
-  "_extensions": ["jinja2_git.GitExtension"]
 }

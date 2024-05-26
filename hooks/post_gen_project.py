@@ -46,7 +46,7 @@ def init_git():
             '-m',
             'feat: copy the template',
             '-m',
-            'Check out the github.com/ryzhakar/fastapi-starter to learn more.'
+            'Check out the github.com/ryzhakar/fastapi-starter to learn more.',
         ],
         check=True,
     )

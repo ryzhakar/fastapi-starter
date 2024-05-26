@@ -1,7 +1,7 @@
+from sqlalchemy import BigInteger
 from sqlalchemy.dialects import mysql
 from sqlalchemy.dialects import postgresql
 from sqlalchemy.dialects import sqlite
-from sqlalchemy import BigInteger
 
 
 BigIntegerType = BigInteger()
