@@ -4,6 +4,7 @@ from app.settings import get_settings
 from app.initializers import sentry
 
 settings = get_settings()
+devmode = settings.environment == 'development'
 
 app = server.get_app(
     healthcheck.router,
@@ -13,4 +14,5 @@ app = server.get_app(
         ],
         post=[],
     ),
+    docs='/' if devmode else False,
 )
