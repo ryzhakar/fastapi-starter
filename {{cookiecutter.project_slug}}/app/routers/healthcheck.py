@@ -1,12 +1,10 @@
-from fastapi import APIRouter, Response
+from fastapi import APIRouter
 
 
-router = APIRouter(
-    prefix='/healthcheck',
-)
+router = APIRouter()
 
 
-@router.get('/', response_class=Response)
-async def healthcheck() -> Response:
+@router.get('/healthcheck')
+async def healthcheck() -> dict:
     """Try to return a 200 OK response."""
-    return Response(status_code=200)
+    return {'status': 'ok'}
