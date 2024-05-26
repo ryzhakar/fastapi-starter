@@ -12,13 +12,13 @@ import os
 import secrets
 import shutil
 import string
+import subprocess
 
 # CHANGEME mark
 CHANGEME = '__CHANGEME__'
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-PROJECT_NAME = '{{ cookiecutter.project_name }}'
 
 # Messages
 PROJECT_SUCCESS = """
@@ -27,6 +27,29 @@ Now you can start working on it:
 
     cd {0}
 """
+
+
+def init_git():
+    """Initialize a git repository."""
+    subprocess.run(
+        ['git', 'init', '--initial-branch=main'],
+        check=True,
+    )
+    subprocess.run(
+        ['git', 'add', '.'],
+        check=True,
+    )
+    subprocess.run(
+        [
+            'git',
+            'commit',
+            '-m',
+            'feat: copy the template',
+            '-m',
+            'Check out the github.com/ryzhakar/fastapi-starter to learn more.'
+        ],
+        check=True,
+    )
 
 
 def _get_random_string(length=50):
@@ -69,7 +92,7 @@ def _create_secret_key(config_path):
 
 def print_futher_instuctions():
     """Shows user what to do next after project creation."""
-    print(PROJECT_SUCCESS.format(PROJECT_NAME))  # noqa: WPS421
+    print(PROJECT_SUCCESS.format(PROJECT_DIRECTORY))  # noqa: WPS421
 
 
 def set_dotenv():
@@ -85,4 +108,5 @@ def set_dotenv():
 
 
 set_dotenv()
+init_git()
 print_futher_instuctions()
