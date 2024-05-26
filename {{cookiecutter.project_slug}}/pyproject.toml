@@ -12,7 +12,7 @@ packages = []
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0"
-sentry-sdk = "^2"
+sentry-sdk = {extras = ["fastapi", "starlette"], version = "^2.3.1"}
 pydantic = {extras = ["dotenv"], version = "^2"}
 SQLAlchemy = {version = "^2", extras = ["asyncio", "aiosqlite"]}
 sqlalchemy-stubs = "^0"
@@ -22,6 +22,7 @@ PyJWT = "^2"
 alembic = "^1"
 pytoml = "^0"
 pydantic-settings = "^2"
+gunicorn = "^22.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

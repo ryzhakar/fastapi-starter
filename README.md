@@ -1,1 +1,1 @@
-# {{cookiecutter.project_name}}
+# FastAPI Cookiecutter Template
