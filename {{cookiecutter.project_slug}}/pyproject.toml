@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "0.1.0"
+description = ""
+authors = [
+    "{{cookiecutter.author}}"
+]
+license = "MIT"
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0"
+sentry-sdk = "^2"
+pydantic = {extras = ["dotenv"], version = "^2"}
+SQLAlchemy = {version = "^2", extras = ["asyncio", "aiosqlite"]}
+sqlalchemy-stubs = "^0"
+asyncpg = "^0"
+ulid-py = "^1"
+PyJWT = "^2"
+alembic = "^1"
+pytoml = "^0"
+pydantic-settings = "^2"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1"
+flake8 = "^7"
+wemake-python-styleguide = "^0.19"
+devtools = "^0.12"
+
+[tool.mypy]
+plugins = "sqlmypy"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
