@@ -23,6 +23,7 @@ alembic = "^1"
 pytoml = "^0"
 pydantic-settings = "^2"
 gunicorn = "^22.0.0"
+colorlog = "^6.8.2"
 
 
 [tool.poetry.group.dev.dependencies]
