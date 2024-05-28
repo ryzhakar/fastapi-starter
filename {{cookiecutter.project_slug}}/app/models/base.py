@@ -4,6 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.sql import func
+from app.utilities.naming import to_table_name
 
 
 class Base(AsyncAttrs, DeclarativeBase):
@@ -12,8 +13,7 @@ class Base(AsyncAttrs, DeclarativeBase):
     @declared_attr
     def __tablename__(cls) -> str:  # noqa: N805
         """Use pluralized class name as the table name."""
-        lowercased = cls.__name__.lower()
-        return f'{lowercased}s'
+        return to_table_name(cls.__name__)
 
     created = Column(
         DateTime(timezone=False),
