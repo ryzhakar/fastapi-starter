@@ -11,13 +11,10 @@ async def healthcheck() -> dict:
     user_ulid = str(ulid.new().str)
     jwt = auth.ulidjwt.issue(user_ulid, expires_in_seconds=60)
     jwt_hash_1 = auth.hashing.create(jwt)
-    jwt_hash_2 = auth.hashing.create(jwt)
     return {
         'ulid_matches': user_ulid == auth.ulidjwt.verify(jwt),
-        'jwt_hashes_match': auth.hashing.compare(jwt_hash_1, jwt_hash_2),
+        'jwt_hashes_match': auth.hashing.compare(jwt, jwt_hash_1),
         'ulid': user_ulid,
         'jwt': jwt,
         'jwt_hash_1': jwt_hash_1,
-        'jwt_hash_2': jwt_hash_2,
     }
-

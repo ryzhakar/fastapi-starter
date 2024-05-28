@@ -1,11 +1,11 @@
 import bcrypt
 
 
-def create(string_to_hash: str) -> str:
+def create(hashable: str) -> str:
     """Hash a string."""
-    return bcrypt.hashpw(string_to_hash.encode(), bcrypt.gensalt()).decode()
+    return bcrypt.hashpw(hashable.encode(), bcrypt.gensalt()).decode()
 
 
-def compare(first: str, second: str) -> bool:
+def compare(hashable: str, hashed: str) -> bool:
     """Check if a string matches a hash."""
-    return bcrypt.checkpw(first.encode(), second.encode())
+    return bcrypt.checkpw(hashable.encode(), hashed.encode())
